@@ -1,0 +1,83 @@
+---
+const bullets = [
+	'依存追加なし（Astro + CSS）',
+	'ガラス質感 + グラデーション',
+	'軽いアニメーション & レスポンシブ',
+];
+---
+
+<section class="hero nb-hero">
+	<div class="container wrap">
+		<div class="copy">
+			<div class="pill">
+				<span aria-hidden="true">✦</span>
+				<span>Astroで作る “おしゃれ” を最短で</span>
+			</div>
+
+			<h1>
+				夜のように深く、
+				<br />
+				花のように鮮やかに。
+			</h1>
+
+			<p class="muted lead">
+				Noir Bloom は、軽量なAstroプロジェクトに「見た目の説得力」を載せるためのデザインデモです。
+				テーマ切替やアコーディオンなど、最低限のインタラクションも入っています。
+			</p>
+
+			<div class="cta" id="cta">
+				<a class="btn primary" href="#features">デザインを見る</a>
+				<a class="btn" href="#faq">よくある質問</a>
+			</div>
+
+			<ul class="bullets">
+				{bullets.map((b) => (
+					<li><span class="dot" aria-hidden="true"></span>{b}</li>
+				))}
+			</ul>
+		</div>
+
+		<div class="preview surface floaty" aria-label="UIプレビュー">
+			<div class="top">
+				<div class="traffic" aria-hidden="true">
+					<span></span><span></span><span></span>
+				</div>
+				<div class="addr">
+					<span class="lock" aria-hidden="true">⌁</span>
+					<span class="muted">noir-bloom.local</span>
+				</div>
+			</div>
+
+			<div class="pane">
+				<div class="card">
+					<div class="kpi">
+						<span class="muted">Engagement</span>
+						<strong>+38%</strong>
+					</div>
+					<div class="bar">
+						<span style="width: 72%"></span>
+					</div>
+				</div>
+
+				<div class="grid2">
+					<div class="mini">
+						<span class="muted">Latency</span>
+						<strong>78ms</strong>
+					</div>
+					<div class="mini">
+						<span class="muted">Deploy</span>
+						<strong>12s</strong>
+					</div>
+				</div>
+
+				<div class="card glow">
+					<div class="row">
+						<strong>Design tokens</strong>
+						<span class="tag">CSS</span>
+					</div>
+					<p class="muted">変数で色・影・角丸を統一。少ないCSSでも“整う”。</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

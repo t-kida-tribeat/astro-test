@@ -1,0 +1,46 @@
+---
+const faqs = [
+	{
+		q: 'Tailwindなどは入れないんですか？',
+		a: '今回は「環境構築済み・依存追加なし」でおしゃれにする例として、素のCSSで仕上げています。必要なら後からTailwindに置き換えも簡単です。',
+	},
+	{
+		q: 'このまま複数ページにできますか？',
+		a: 'できます。`Layout.astro` と `global.css` が土台なので、`src/pages/` にページを増やすだけで統一感のあるサイトになります。',
+	},
+	{
+		q: 'インタラクションはどう入れていますか？',
+		a: 'テーマ切替は最小のインラインJS、FAQはHTMLの `details/summary` でアクセシブルに実装しています。',
+	},
+];
+---
+
+<section id="faq" class="section nb-faq">
+	<div class="container">
+		<div class="head">
+			<p class="pill"><span aria-hidden="true">?</span>FAQ</p>
+			<h2>よくある質問</h2>
+			<p class="muted">導入前に気になりがちなポイントだけ、短くまとめました。</p>
+		</div>
+
+		<div class="grid faq">
+			{faqs.map((f, idx) => (
+				<details class="item" open={idx === 0}>
+					<summary>
+						<span>{f.q}</span>
+						<span class="chev" aria-hidden="true">+</span>
+					</summary>
+					<p class="muted">{f.a}</p>
+				</details>
+			))}
+		</div>
+
+		<div class="cta surface" role="region" aria-label="CTA">
+			<div>
+				<h3>続きはあなたのプロダクトで。</h3>
+				<p class="muted">色/フォント/構成はすでに揃ってます。あとは中身を置き換えるだけ。</p>
+			</div>
+			<a class="btn primary" href="#content">上に戻る</a>
+		</div>
+	</div>
+</section>

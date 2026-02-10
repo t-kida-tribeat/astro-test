@@ -1,0 +1,30 @@
+---
+const links = [
+	{ href: '#features', label: '特徴' },
+	{ href: '#showcase', label: 'ショーケース' },
+	{ href: '#faq', label: 'FAQ' },
+];
+---
+
+<header class="nav nb-nav">
+	<div class="container inner">
+		<a class="brand" href="/" aria-label="Noir Bloom ホーム">
+			<span class="mark" aria-hidden="true"></span>
+			<span>Noir Bloom</span>
+		</a>
+
+		<nav class="links" aria-label="ページ内ナビゲーション">
+			{links.map((l) => (
+				<a class="link" href={l.href}>{l.label}</a>
+			))}
+		</nav>
+
+		<div class="actions">
+			<button class="btn" type="button" id="themeToggle" aria-label="テーマ切替">
+				<span class="icon" aria-hidden="true">◐</span>
+				<span class="label">Theme</span>
+			</button>
+			<a class="btn primary" href="#cta">はじめる</a>
+		</div>
+	</div>
+</header>

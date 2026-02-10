@@ -1,0 +1,9 @@
+@import './global.css';
+
+@import './components/nav.css';
+@import './components/hero.css';
+@import './components/features.css';
+@import './components/showcase.css';
+@import './components/faq.css';
+@import './components/footer.css';
+

@@ -1,0 +1,89 @@
+---
+const items = [
+	{
+		title: 'セクションの設計',
+		desc: 'Hero → Features → Showcase → FAQ → Footer。LPの基本形を最初から用意。',
+	},
+	{
+		title: '微インタラクション',
+		desc: 'テーマ切替、アコーディオン、ホバー表現。気持ちよさを少量のJSで。',
+	},
+	{
+		title: 'スケールするCSS',
+		desc: '変数 + 共通クラスで増築しやすい。ページ追加も怖くない。',
+	},
+];
+
+const codeSample = `/* tokens */
+:root {
+  --radius: 18px;
+  --stroke: rgba(255,255,255,.12);
+}`;
+---
+
+<section id="showcase" class="section nb-showcase">
+	<div class="container">
+		<div class="head">
+			<p class="pill"><span aria-hidden="true">◇</span>ショーケース</p>
+			<h2>“それっぽい”を、ちゃんと作る。</h2>
+			<p class="muted">飾りすぎず、でも地味に見えない。バランスの良い表現だけを拾ってあります。</p>
+		</div>
+
+		<div class="grid layout">
+			<article class="surface panel">
+				<header class="panelHead">
+					<h3>Mini dashboard</h3>
+					<p class="muted">カード・表・コード。よく使うUIをミックス。</p>
+				</header>
+
+				<div class="kpis">
+					<div class="k">
+						<span class="muted">CTR</span>
+						<strong>3.4%</strong>
+					</div>
+					<div class="k">
+						<span class="muted">Signups</span>
+						<strong>126</strong>
+					</div>
+					<div class="k">
+						<span class="muted">Churn</span>
+						<strong>0.8%</strong>
+					</div>
+				</div>
+
+				<div class="table">
+					<div class="row headRow">
+						<span class="muted">実装</span><span class="muted">難易度</span><span class="muted">効果</span>
+					</div>
+					<div class="row">
+						<span>トークン化</span><span>低</span><span>高</span>
+					</div>
+					<div class="row">
+						<span>ガラス質感</span><span>低</span><span>中</span>
+					</div>
+					<div class="row">
+						<span>タイポ調整</span><span>中</span><span>高</span>
+					</div>
+				</div>
+
+				<pre class="code"><code>{codeSample}</code></pre>
+			</article>
+
+			<aside class="stack">
+				{items.map((it) => (
+					<article class="tile">
+						<h3>{it.title}</h3>
+						<p class="muted">{it.desc}</p>
+						<div class="shine" aria-hidden="true"></div>
+					</article>
+				))}
+				<article class="tile ctaTile" id="cta-block">
+					<h3>このままベースにできます</h3>
+					<p class="muted">ページ追加、ブログ追加、ダッシュボード化もOK。まずは見た目の軸を固定しましょう。</p>
+					<a class="btn primary" href="#features">ベースとして使う</a>
+					<div class="shine" aria-hidden="true"></div>
+				</article>
+			</aside>
+		</div>
+	</div>
+</section>

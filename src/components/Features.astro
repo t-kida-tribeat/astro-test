@@ -1,0 +1,46 @@
+---
+const features = [
+	{
+		title: '設計が崩れない',
+		desc: '色・影・余白をトークン化。パーツを増やしても“統一感”が残ります。',
+		icon: '▣',
+	},
+	{
+		title: '速く作れる',
+		desc: '依存追加なし。コンポーネントとCSSだけで最短距離の実装に。',
+		icon: '⚡',
+	},
+	{
+		title: '体験が気持ちいい',
+		desc: '粘りのあるホバー、控えめなアニメーション、読みやすいタイポ。',
+		icon: '✶',
+	},
+	{
+		title: 'そのまま拡張できる',
+		desc: 'LPからブログ/ダッシュボードまで、セクションを足して育てられます。',
+		icon: '⤴',
+	},
+];
+---
+
+<section id="features" class="section nb-features">
+	<div class="container">
+		<div class="head">
+			<p class="pill"><span aria-hidden="true">◎</span>特徴</p>
+			<h2>見た目の説得力を、最小コストで。</h2>
+			<p class="muted">
+				ガラス質感・グラデーション・タイポの3点を押さえると、少ない実装でも一気に“おしゃれ”になります。
+			</p>
+		</div>
+
+		<div class="grid cards">
+			{features.map((f) => (
+				<article class="card">
+					<div class="icon" aria-hidden="true">{f.icon}</div>
+					<h3>{f.title}</h3>
+					<p class="muted">{f.desc}</p>
+				</article>
+			))}
+		</div>
+	</div>
+</section>

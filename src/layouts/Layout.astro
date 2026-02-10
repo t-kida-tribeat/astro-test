@@ -1,23 +1,48 @@
+---
+import '../styles/app.css';
+import themeScriptUrl from '../scripts/theme.ts?url';
+
+type Props = {
+	title?: string;
+	description?: string;
+};
+
+const {
+	title = 'Noir Bloom',
+	description = 'Astroで作った、おしゃれで軽いWebアプリのデモ。',
+} = Astro.props;
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="ja" data-theme="dark">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title}</title>
+		<meta name="description" content={description} />
+
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+
+		<script is:inline>
+			(() => {
+				const storageKey = 'nb-theme';
+				const root = document.documentElement;
+				const saved = localStorage.getItem(storageKey);
+				const prefersLight =
+					window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+				const theme = saved ?? (prefersLight ? 'light' : 'dark');
+				root.dataset.theme = theme;
+			})();
+		</script>
+		<script type="module" src={themeScriptUrl}></script>
 	</head>
 	<body>
+		<a class="skip-link" href="#content">本文へスキップ</a>
 		<slot />
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
