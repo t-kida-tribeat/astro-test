@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 
 // https://astro.build/config
 export default defineConfig({
-  // GitHub Pages: ユーザー名に置き換えてください
-  site: 'https://<YOUR_GITHUB_USERNAME>.github.io',
+  // GitHub Pages: 'placeholder' を自分のGitHubユーザー名に置き換えてください
+  site: 'https://placeholder.github.io',
   base: '/opposite-osiris/',
 });
