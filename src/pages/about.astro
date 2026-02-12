@@ -1,0 +1,88 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+const pillars = [
+	{
+		title: '速く触れること',
+		desc: '立ち上げに時間がかかると、細かい調整を試す気力が失われます。Astroで最低限のレイアウトとデザインだけ先に用意しておくと、その上で自由に遊べます。',
+	},
+	{
+		title: '飽きない見た目であること',
+		desc: '一瞬だけ“映える”のではなく、毎日見ても疲れない色・コントラスト・余白を優先しています。',
+	},
+	{
+		title: '拡張しやすいこと',
+		desc: 'トークンと共通クラスでベースを揃えているので、ページや機能を増やしても破綻しにくくなっています。',
+	},
+];
+---
+
+<Layout
+	title="About — Noir Bloom"
+	description="Noir Bloom のデザインコンセプトと、どういう使い方を想定しているかをまとめたページ。"
+>
+	<Nav />
+	<main class="nb-about">
+		<section>
+			<div class="container heading">
+				<p class="pill"><span aria-hidden="true">✦</span>About</p>
+				<h1>Noir Bloom というベース。</h1>
+				<p class="muted lede">
+					このプロジェクトは、「Astroの小さなプロダクトを、最初からそれっぽく見せたい」というニーズから生まれました。
+					LPにもダッシュボードにも育てられる“土台”です。
+				</p>
+			</div>
+		</section>
+
+		<section>
+			<div class="container grid">
+				<article class="panel">
+					<h2>大事にしている3つのこと</h2>
+					<p class="muted">
+						Noir Bloom は、単なる「かっこいいUI」ではなく、作り手にとって扱いやすいことを重視しています。
+					</p>
+					<ul class="timeline">
+						{pillars.map((p) => (
+							<li>
+								<h3>{p.title}</h3>
+								<p class="muted">{p.desc}</p>
+							</li>
+						))}
+					</ul>
+				</article>
+
+				<aside class="panel">
+					<h2>どんなときに使うと良いか</h2>
+					<p class="muted">
+						ちょっとした個人プロダクト、PoC、クライアントへのUIたたき台など、「まだ重いUIフレームワークを入れたくない」タイミングに向いています。
+					</p>
+					<div class="chips">
+						<span class="chip">LPのたたき台</span>
+						<span class="chip">ダッシュボードの骨組み</span>
+						<span class="chip">スタイルガイドの雛形</span>
+					</div>
+
+					<div class="timeline" style="margin-top: 18px">
+						<div class="row">
+							<span class="year">Now</span>
+							<p class="note muted">1ページ＋Aboutの構成。ここから必要なページを足していきます。</p>
+						</div>
+						<div class="row">
+							<span class="year">Next</span>
+							<p class="note muted">ブログやドキュメント、シンプルな管理画面への展開を想定しています。</p>
+						</div>
+					</div>
+
+					<div class="cta">
+						<a class="btn primary" href="/">トップへ戻る</a>
+						<a class="btn" href="#content">このページの先頭へ</a>
+					</div>
+				</aside>
+			</div>
+		</section>
+	</main>
+	<Footer />
+</Layout>
+
