@@ -12,17 +12,20 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Setup Pages
-        uses: actions/setup-pages@v4
+        uses: actions/configure-pages@v4
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # 公開するファイルがあるディレクトリを指定（直下なら '.'）
+          # 公開するファイルがあるディレクトリを指定（ビルド後は 'dist'）
           path: '.'
 
       - name: Deploy to GitHub Pages
