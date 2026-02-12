@@ -26,7 +26,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # 公開するファイルがあるディレクトリを指定（ビルド後は 'dist'）
-          path: '.'
+          path: 'dist'
 
       - name: Deploy to GitHub Pages
         id: deployment
