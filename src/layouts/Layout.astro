@@ -30,6 +30,7 @@ const {
 
 		<script is:inline defer>
 			window.addEventListener('DOMContentLoaded', () => {
+				
 				const storageKey = 'nb-theme';
 				const root = document.documentElement;
 				const saved = localStorage.getItem(storageKey);
@@ -37,6 +38,7 @@ const {
 					window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
 				const theme = saved ?? (prefersLight ? 'light' : 'dark');
 				root.dataset.theme = theme;
+				console.log('DOMContentLoaded');
 			});
 
 		</script>

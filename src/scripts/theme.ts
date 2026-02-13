@@ -33,5 +33,6 @@ export function bindThemeToggle(buttonId = 'themeToggle') {
 // Auto-bind on page load
 window.addEventListener('DOMContentLoaded', () => {
 	bindThemeToggle();
+	console.log('Auto-bind on page load');
 });
 
