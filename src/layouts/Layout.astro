@@ -1,6 +1,5 @@
 ---
 import '/src/styles/app.css';
-import themeScriptUrl from '../scripts/theme.ts?url';
 
 type Props = {
 	title?: string;
@@ -40,7 +39,11 @@ const {
 				root.dataset.theme = theme;
 			})();
 		</script>
-		<script is:inline defer type="module" src={themeScriptUrl}></script>
+		<script>
+			// これが最も確実な「命令」です。
+			// Viteに対し「このTSをJSに変換して、ここに差し込め」と伝えます。
+			import '../scripts/theme.ts';
+		  </script>
 	</head>
 	<body>
 		<a class="skip-link" href="#content">本文へスキップ</a>
