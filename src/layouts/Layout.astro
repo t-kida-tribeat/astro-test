@@ -29,7 +29,7 @@ const {
 		<meta property="og:type" content="website" />
 
 		<script is:inline>
-			(() => {
+			window.addEventListener('DOMContentLoaded', () => {
 				const storageKey = 'nb-theme';
 				const root = document.documentElement;
 				const saved = localStorage.getItem(storageKey);
@@ -37,7 +37,8 @@ const {
 					window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
 				const theme = saved ?? (prefersLight ? 'light' : 'dark');
 				root.dataset.theme = theme;
-			})();
+			});
+
 		</script>
 		<script is:inline defer type="module" src={themeScriptUrl}></script>
 	</head>
