@@ -1,6 +1,6 @@
 ---
-import '../styles/app.css';
-import themeScriptUrl from '../scripts/theme.ts?url';
+import '/src/styles/app.css';
+import themeScriptUrl from '/src/scripts/theme.ts?url';
 
 type Props = {
 	title?: string;
@@ -39,7 +39,7 @@ const {
 				root.dataset.theme = theme;
 			})();
 		</script>
-		<script is:inline type="module" src={themeScriptUrl}></script>
+		<script defer type="module" src={themeScriptUrl}></script>
 	</head>
 	<body>
 		<a class="skip-link" href="#content">本文へスキップ</a>
