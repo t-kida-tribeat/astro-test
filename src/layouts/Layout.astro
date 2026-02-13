@@ -1,6 +1,6 @@
 ---
 import '/src/styles/app.css';
-import themeScriptUrl from '/src/scripts/theme.ts?url';
+import themeScriptUrl from '../scripts/theme.ts?url';
 
 type Props = {
 	title?: string;
@@ -28,14 +28,9 @@ const {
 		<meta property="og:description" content={description} />
 		<meta property="og:type" content="website" />
 
-		<script is:inline defer>
-			import { bindThemeToggle } from '../scripts/theme.ts';
-            
-            // DOMContentLoadedを待たずに実行しても、
-            // Astroの標準scriptは自動的に適切なタイミングで実行されます
-           
-			window.addEventListener('DOMContentLoaded', () => {
-				
+		<script is:inline>
+			
+			(() => {
 				const storageKey = 'nb-theme';
 				const root = document.documentElement;
 				const saved = localStorage.getItem(storageKey);
@@ -43,12 +38,9 @@ const {
 					window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
 				const theme = saved ?? (prefersLight ? 'light' : 'dark');
 				root.dataset.theme = theme;
-				console.log('DOMContentLoaded');
-				bindThemeToggle('themeToggle'); 
-				console.log('Theme script loaded and bound');
-			});
-
+			})();
 		</script>
+		<script is:inline defer type="module" src={themeScriptUrl}></script>
 	</head>
 	<body>
 		<a class="skip-link" href="#content">本文へスキップ</a>
