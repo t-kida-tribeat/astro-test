@@ -29,6 +29,11 @@ const {
 		<meta property="og:type" content="website" />
 
 		<script is:inline defer>
+			import { bindThemeToggle } from '../scripts/theme.ts';
+            
+            // DOMContentLoadedを待たずに実行しても、
+            // Astroの標準scriptは自動的に適切なタイミングで実行されます
+           
 			window.addEventListener('DOMContentLoaded', () => {
 				
 				const storageKey = 'nb-theme';
@@ -39,10 +44,11 @@ const {
 				const theme = saved ?? (prefersLight ? 'light' : 'dark');
 				root.dataset.theme = theme;
 				console.log('DOMContentLoaded');
+				bindThemeToggle('themeToggle'); 
+				console.log('Theme script loaded and bound');
 			});
 
 		</script>
-		<script is:inline defer src={themeScriptUrl}></script>
 	</head>
 	<body>
 		<a class="skip-link" href="#content">本文へスキップ</a>
